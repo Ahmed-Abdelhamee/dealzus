@@ -1,0 +1,21 @@
+.brand-icon{
+    width: 150px;
+    height: 110px;
+}
+.navbar-expand-lg .navbar-collapse {
+    flex-grow: 0;
+}
+.active {
+    background-color: orange !important;
+    box-shadow: inset 0px -18px 10px #a07c2b, 0px 0px 5px #a3a2a2 !important;
+}
+.nav-link{
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    margin-right: 8px;
+    padding: 10px 25px !important;
+    box-shadow: inset 0px 16px 10px #434343, 0px 0px 5px #a3a2a2;
+    font-size: 13px;
+    margin-bottom: 5px;
+}

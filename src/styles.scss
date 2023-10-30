@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+
+.global-big-title{
+    text-transform: uppercase;
+    font-size: 40px;
+    color: rgb(117, 29, 29);
+    font-weight: 100;
+}
+
+
+.title{
+    font-size: 27px;
+    color: brown;
+    text-transform: capitalize;
+    padding-left: 10px;
+}
+
+
+
+

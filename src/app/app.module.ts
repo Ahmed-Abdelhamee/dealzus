@@ -10,6 +10,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AlbairaqComponent } from './components/albairaq/albairaq.component';
+import { LocationStrategy, Location,PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { AlbairaqComponent } from './components/albairaq/albairaq.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    Location, {provide: LocationStrategy, useClass: PathLocationStrategy}
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

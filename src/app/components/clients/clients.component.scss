@@ -1,0 +1,72 @@
+@media screen and (max-width:600px) {
+    div.row{
+        display: block;
+    }
+    div.show-Image img{
+        border-radius: 10px;
+        width: 70%;
+        height: 50vh;
+        margin-top: 24vh;
+    }
+}
+.row{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.div-of-clients-images img{
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.div-of-clients-images img:hover{
+    filter: brightness(0.5);
+}
+
+.show-Image{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 103vh;
+    background-color: rgba(0, 0, 0, 0.723);
+    display: flex;
+    justify-content: center;
+    animation-name: open_Slow_Show;
+    animation-duration: .8s;
+}
+
+.show-Image img{
+    border-radius: 10px;
+    width: 50%;
+    height: 80vh;
+    margin-top: 10vh;
+}
+
+.btn-close{
+    background-color: gold ;
+    padding: 8px;
+    position: absolute;
+    right: 5%;
+    top: 15px;
+    opacity: .8;
+}
+
+.bi{
+    color: rgb(219, 238, 254);
+    color: gold;
+    margin: 10px;
+    margin-top: 45vh;
+    font-size: 30px;
+}
+
+@keyframes open_Slow_Show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes close_Slow_Show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

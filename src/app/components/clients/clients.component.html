@@ -1,1 +1,17 @@
-<p>clients works!</p>
+<div class="col-12 bg-dark">
+    <div class="container bg-light p-2">
+        <p class="global-big-title">clients</p>
+        <div class="row text-center">
+            <div class="text-center div-of-clients-images" *ngFor="let item of clientsList">
+                <img [src]="item" alt="" (click)="show(item)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="show-Image" [class.show-text] ="showImage" [class.d-none]="!showImage">
+    <button class="btn-close d-flex justify-content-end mt-2" (click)="close()"></button>
+    <i class="bi bi-arrow-left-square-fill" (click)="right(image_Show_Link)"></i>
+    <img [src]="image_Show_Link" alt="">
+    <i class="bi bi-arrow-right-square-fill" (click)="left(image_Show_Link)"></i>
+</div>

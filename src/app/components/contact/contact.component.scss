@@ -1,0 +1,26 @@
+p{
+    margin-bottom: 0px;
+}
+.form-group{
+    margin-bottom: 10px;
+}
+input,textarea{
+    background-color: rgb(29, 29, 29) !important;
+    color: gray !important;
+    font-size: 16px;
+    padding: 10px;
+    padding-left: 15px;
+}
+::placeholder{
+    color: gray !important;
+}
+.submit{
+    float: right;
+    border: none;
+    font-size: 22px;
+    background-color: orange;
+    font-weight: 300;
+    padding: 3px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

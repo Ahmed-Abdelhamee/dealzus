@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/admin/services/data.service';
+import { homeClients } from 'src/app/interfaces/homeClients.interface';
 
 @Component({
   selector: 'app-clients',
@@ -7,18 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
 
-  constructor() { }
+  
+  showImage:boolean=false;
 
+  image_Show_Link:any="";
+
+  clientsList:homeClients[]=[]
+  
+  constructor(private dataServ:DataService) {
+    dataServ.getAllClients().subscribe(data =>{
+      for (const key in data) {
+        this.clientsList.push(data[key])
+      }
+    })
+  }
+  
   ngOnInit(): void {
   }
 
-  showImage:boolean=false;
 
-  image_Show_Link:string="";
-
-  clientsList:string[]=["assets/1.webp","assets/2.webp","assets/3.webp","assets/4.webp","assets/1.webp","assets/2.webp","assets/3.webp","assets/4.webp"]
-
-  show(item:string){
+  show(item:homeClients){
     this.showImage=true;
     this.image_Show_Link=item;
   }
@@ -27,7 +37,7 @@ export class ClientsComponent implements OnInit {
     this.showImage=false;
   }
 
-  left(item:string){
+  left(item:homeClients){
     if( this.clientsList.indexOf(item) < this.clientsList.length - 1 ){
       this.image_Show_Link = this.clientsList[this.clientsList.indexOf(item) + 1] ;
     }
@@ -35,7 +45,7 @@ export class ClientsComponent implements OnInit {
       this.image_Show_Link = this.clientsList[0]
   }
 
-  right(item:string){
+  right(item:homeClients){
     if( this.clientsList.indexOf(item) == 0 ){
       this.image_Show_Link = this.clientsList[this.clientsList.length-1] ;
     }else{

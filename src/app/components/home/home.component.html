@@ -21,18 +21,9 @@
             <div class="card-data">
                 <p class="title">clients</p>
                 <div class="clients-imgs">
-                    <div class="text-center">
-                        <img src="assets/2.webp" alt="">
-                    </div>
-                    <div class="text-center">
-                        <img src="assets/3.webp" alt="">
-                    </div>
-                    <div class="text-center">
-                        <img src="assets/4.webp" alt="">
-                    </div>
-                    <div class="text-center">
-                        <img src="assets/5.webp" alt="">
-                    </div>
+                    <ng-container  *ngFor="let item of clientPhotoArray">
+                            <img src="{{item.img}}" alt="">
+                    </ng-container>
                 </div>
             </div>
             <a class="nav-link" routerLink="/clients">more</a>

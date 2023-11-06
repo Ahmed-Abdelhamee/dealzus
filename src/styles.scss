@@ -26,5 +26,9 @@ p{
     padding-bottom: 1rem;
 }
 
+::selection{
+    background-color: orange;
+    color: white;
+}
 
 

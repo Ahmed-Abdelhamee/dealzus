@@ -1,0 +1,58 @@
+<!-- div for show-data   and   add-new  -->
+<div class="col-12">
+    <div class="container">
+        <button class="btn btn-primary" adminButtonDirective (click)="viewControl('add')">add amage</button>
+        <button class="btn btn-secondary" adminButtonDirective  (click)="viewControl('showData')">show Data</button>
+    </div>
+</div>
+<!-- form div -->
+<div class="col-12">
+    <div class="container mt-4" *ngIf="mainControl=='add' || mainControl=='edit'">
+        <div class="text-center" *ngIf="mainControl=='edit'">
+            <img [src]="globalObject.img" alt="" appAdminPromoImage>
+        </div>
+        <form [formGroup]="clientPhoto" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label for="file"></label>
+                <input type="file" class="form-control" id="file" (change)="uploadingFile($event)">
+                <img [src]="photoUrl" alt="" *ngIf="photoUrl != '' "   adminPhotoStyleDirective   >
+                <span *ngIf="uploadingImg == 'uploadingImg'"   adminLoadingStyleDirective  >جاري التحميل ...</span>
+            </div> 
+            <div class="text-center">
+                <button type="submit" class="btn btn-warning m-2" *ngIf="uploadingImg=='imgUploaded'">save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- data show div -->
+<div class="col-12" appShowDataDiveDirective  *ngIf="mainControl=='showData' || mainControl=='delete'">
+    <table class="table"  *ngIf="mainControl=='showData'">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> صورة</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of clientPhotoArray ; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td><img src="{{item.img}}" adminPhotoStyleDirective alt=""></td>
+            <td> 
+                <button class="btn btn-danger" adminButtonDirective (click)="findItem(item ,'delete')">delete</button>
+                <button class="btn btn-warning" adminButtonDirective (click)="findItem(item,'edit')">edit</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+    <!-- to ensure the delete action -->
+    <div *ngIf="mainControl=='delete'" appDeleteElementDiv>
+        <div class="content">
+            <img [src]="globalObject.img" alt="" appAdminPromoImage class="mb-3">
+            <div class="text-center">
+                <button class="btn btn-danger" adminButtonDirective (click)="deleteTheItem();">delete</button>
+                <button class="btn btn-secondary" adminButtonDirective (click)="viewControl('showData')">edit</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,9 +5,10 @@
 .navbar-expand-lg .navbar-collapse {
     flex-grow: 0;
 }
-.active {
+.active , .nav-link:hover{
     background-color: orange !important;
     box-shadow: inset 0px -18px 10px #a07c2b, 0px 0px 5px #a3a2a2 !important;
+    color: white !important;
 }
 .nav-link{
     background-color: black;

@@ -11,6 +11,12 @@
     }
 }
 
+@media screen and (max-width:965px) and (min-width:601px) {
+    div.clients-imgs{
+        display: block;
+    }
+}
+
 .title2{
     font-size: 20px;
 }
@@ -34,6 +40,14 @@ li{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+.clients-imgs img{
+    width: 92%;
+    height: 100px;
+}
+img{
+    box-shadow: 0px 0px 5px gray;
+    margin-bottom: 20px;
+}
 .full-card-img{
     width: 100%;
 }
@@ -47,7 +61,7 @@ li{
     font-size: 13px;
     margin-bottom: 5px;
     width: fit-content;
-    text-transform: capitalize;
+    text-transform: uppercase;
     margin-top: 15px;
     position: absolute;
     bottom: 5px;

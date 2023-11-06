@@ -5,14 +5,18 @@ p{
     margin-bottom: 10px;
 }
 input,textarea{
-    background-color: rgb(29, 29, 29) !important;
-    color: gray !important;
+    background-color: rgb(24 23 23 / 86%) !important;
+    color: #a0a0a0 !important;
     font-size: 16px;
     padding: 10px;
     padding-left: 15px;
 }
-::placeholder{
+input:hover,textarea:hover{
+    background-color: orange !important;
     color: gray !important;
+}
+::placeholder{
+    color: #a0a0a0 !important;
 }
 .submit{
     float: right;

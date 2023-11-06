@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dealzus": {
+      "hosting": {
+        "dealzus": [
+          "dealzus"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dealzus"
+  }
+}

@@ -1,0 +1,75 @@
+*{
+    padding: 5px;
+}
+.all{
+    direction: rtl;
+}
+.leftside{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    width: 280px;
+    background-color: #f3e8af;
+}
+a{
+    text-transform: capitalize;    
+}
+.nav-link{
+    color: #0d0b00;
+    font-weight: 400;
+}
+
+.nav-link:hover , .active {
+    background-color: #d0972e !important;
+    color: white !important;
+}
+.content{
+    position: fixed;
+    top: 0px;
+    right: 285px;
+    height: 100vh;
+    overflow: auto;
+    width: calc(100% - 295px);
+}
+label{
+    text-transform: capitalize;
+}
+.card{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.btn-secondary{
+    padding:  5px 13px;
+}
+.imgView{
+    height: 100px;
+    width: 150px;
+    border-radius: 13px;
+}
+.table-div{
+    height: 496px;
+    overflow: auto;
+    border: 1px solid lightgray;
+}
+.item{
+    padding-top: 35px;
+}
+.btn{
+    font-size: 13px;
+    color: white;
+    text-transform: capitalize;
+    margin: 2px;
+}
+.part-view{
+    text-align: center;
+    color: #7f8ea5;
+    font-size: 15px;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-weight: 600;
+}
+.icon{
+    width: 95%;
+    height: 160px;
+}

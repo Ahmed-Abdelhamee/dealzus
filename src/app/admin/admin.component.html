@@ -1,0 +1,41 @@
+<div class="all">
+    <div class="col-12 flex-column flex-shrink-0 p-3 leftside">
+        <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+          <img src="assets/tttt_PNG.png" class="bi me-2 icon">
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a routerLink="/admin/home-clients" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" class="nav-link" aria-current="page" >
+                <i class="bi bi-house-door"></i>
+                عملاء الصفحة الرئيسية
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="clients" [routerLinkActive]="'active'">
+                <i class="bi bi-people"></i>
+                صور جميع العملاء 
+            </a>
+          </li>
+        </ul>
+        <hr>
+        
+        <!-- <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/البيرق لوجو.png" alt="" width="32" height="32" class="rounded-circle me-2 bg-light">
+            <strong>More</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item drop-item-edit" routerLink="Albairaq-tower">  Albairaq tower   </a></li>
+            <li><a class="dropdown-item drop-item-edit" routerLink="about">About Albairaq</a></li>
+            <li><a class="dropdown-item drop-item-edit" routerLink="store-location">store location</a></li>
+            <li><a class="dropdown-item drop-item-edit" routerLink="openning-hours">openning hours</a></li>
+            <li><a class="dropdown-item" routerLink="contactus">contact us</a></li>
+          </ul>
+        </div> -->
+    </div>
+      
+    <div class="col-12 content" >
+        <router-outlet></router-outlet>
+    </div>
+</div>

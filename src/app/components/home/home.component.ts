@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/admin/services/data.service';
+import { homeClients } from 'src/app/interfaces/homeClients.interface';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  clientPhotoArray:homeClients[]=[]
+  
+  constructor(private dataServ:DataService) {
+    dataServ.getHomeClients().subscribe(data =>{
+      for (const key in data) {
+        this.clientPhotoArray.push(data[key])
+      }
+    })
+  }
 
   ngOnInit(): void {
   }

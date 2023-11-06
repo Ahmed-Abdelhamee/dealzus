@@ -9,6 +9,7 @@ export class AdminButtonDirectiveDirective {
     eleRef.nativeElement.style.fontSize="13px"
     eleRef.nativeElement.style.textTransform="captalize"
     eleRef.nativeElement.style.marginLeft="7px";
+    eleRef.nativeElement.style.marginBottom="7px";
    }
 
 }

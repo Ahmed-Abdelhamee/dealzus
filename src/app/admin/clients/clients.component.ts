@@ -19,7 +19,7 @@ export class ClientsComponent implements OnInit {
     id:[new Date().getTime()]
   })
   photoUrl:string="";
-  clientPhotoArray:homeClients[]=[];
+  clientPhotoArray:homeClients[]=[]; // for showing the data
   // item key in database
   globalKey:string="";
   globalObject:any;
@@ -46,7 +46,7 @@ export class ClientsComponent implements OnInit {
     this.uploadingImg="uploadingImg";
     const file=event.target.files[0];
     if(file){
-      const path=`DEALZUS/${file.name}${new Date().getTime()}`; // we make name of file in firebase storage 
+      const path=`DEALZUS/${new Date().getTime()}${file.name}`; // we make name of file in firebase storage 
       const uploadTask = await this.fireStorage.upload(path,file)
       const url =await uploadTask.ref.getDownloadURL()
       this.photoUrl=url;
@@ -86,15 +86,18 @@ export class ClientsComponent implements OnInit {
           break;
         }
       }
+      console.log(this.globalObject.img)
     })
   }
   //---------------------------------------------
 
   // --------- to impelement the deletion ---------
   deleteTheItem(){
-    this.dataServ.delete("allClients",this.globalKey).subscribe(()=>{
-      setTimeout(()=> location.reload() , 600)
-    })
+    // this.dataServ.delete("allClients",this.globalKey).subscribe(()=>{
+    //   setTimeout(()=> location.reload() , 600)
+    // })
+     this.fireStorage.storage.refFromURL(this.globalObject.img).delete()
+
   }
   //---------------------------------------------
 

@@ -6,9 +6,21 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
+            <a routerLink="/admin/home-services" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" class="nav-link" aria-current="page" >
+              <i class="bi bi-question-circle"></i>
+                <span>الخدمات بالصفحة الرئيسية</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a routerLink="/admin/home-clients" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" class="nav-link" aria-current="page" >
                 <i class="bi bi-house-door"></i>
                 <span>عملاء الصفحة الرئيسية</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="services" [routerLinkActive]="'active'">
+              <i class="bi bi-person-raised-hand"></i>
+                <span>الخدمات</span>
             </a>
           </li>
           <li>
@@ -17,22 +29,22 @@
                 <span>صور جميع العملاء </span>
             </a>
           </li>
+          <li>
+            <a class="nav-link" routerLink="albairaq-mall" [routerLinkActive]="'active'">
+              <i class="bi bi-shop"></i>
+                <span>البيراق مول</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" routerLink="contact-us" [routerLinkActive]="'active'">
+              <i class="bi bi-telephone-forward"></i>
+                <span>تواصل معانا</span>
+            </a>
+          </li>
         </ul>
         <hr>
         
-        <!-- <div class="dropdown">
-          <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="assets/البيرق لوجو.png" alt="" width="32" height="32" class="rounded-circle me-2 bg-light">
-            <strong>More</strong>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item drop-item-edit" routerLink="Albairaq-tower">  Albairaq tower   </a></li>
-            <li><a class="dropdown-item drop-item-edit" routerLink="about">About Albairaq</a></li>
-            <li><a class="dropdown-item drop-item-edit" routerLink="store-location">store location</a></li>
-            <li><a class="dropdown-item drop-item-edit" routerLink="openning-hours">openning hours</a></li>
-            <li><a class="dropdown-item" routerLink="contactus">contact us</a></li>
-          </ul>
-        </div> -->
+        
     </div>
       
     <div class="col-12 content" >

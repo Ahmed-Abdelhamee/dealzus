@@ -19,15 +19,15 @@ export class ClientsComponent implements OnInit {
     id:[new Date().getTime()]
   })
   photoUrl:string="";
-  clientPhotoArray:homeClients[]=[]; // for showing the data
+  listArray:homeClients[]=[]; // for showing the data
   // item key in database
   globalKey:string="";
   globalObject:any;
 
   constructor(private formBuilder:FormBuilder , private fireStorage:AngularFireStorage,private dataServ:DataService) {
-    dataServ.getAllClients().subscribe(data =>{
+    dataServ.getdata("allClients").subscribe(data =>{
       for (const key in data) {
-        this.clientPhotoArray.push(data[key])
+        this.listArray.push(data[key])
       }
     })
    }
@@ -38,8 +38,17 @@ export class ClientsComponent implements OnInit {
   // ------------- control the show ---------------
   viewControl(mainControl:string){
     this.mainControl=mainControl;
+    this.photoUrl=""
   }
   //----------------------------------------------
+  getData(){
+    this.listArray=[];
+    this.dataServ.getdata("allClients").subscribe(data =>{
+      for (const key in data) {
+        this.listArray.push(data[key])
+      }
+    })
+  }
   
   // ------------- uploading File ---------------
   async uploadingFile(event:any){
@@ -62,22 +71,31 @@ export class ClientsComponent implements OnInit {
   submit(){
     if(this.mainControl=="add"){
       this.dataServ.create(this.clientPhoto.value,"allClients","",this.mainControl).subscribe(()=>{
-        setTimeout(()=> location.reload() , 600)
+        this.getData()
+        this.mainControl="showData";
       })
     }else {
       this.clientPhoto.patchValue({
         id:this.globalObject.id
       })
-      this.dataServ.create(this.clientPhoto.value,"allClients",this.globalKey,this.mainControl).subscribe(()=>{
-        setTimeout(()=> location.reload() , 600)
-      })
-    }
+      if(this.photoUrl==""){
+        this.clientPhoto.patchValue({
+          img:this.globalObject.img
+        })
+      }
+      if(this.photoUrl!="")
+        this.fireStorage.storage.refFromURL(this.globalObject.img!).delete()
+        this.dataServ.create(this.clientPhoto.value,"allClients",this.globalKey,this.mainControl).subscribe(()=>{
+          this.getData()
+          this.mainControl="showData";
+        })
+      }
   }
   //---------------------------------------------
 
   // -------- find item for Edit or Delete --------
   findItem(item:any , typeOfAction:string){
-    this.dataServ.getAllClients().subscribe((data):any =>{
+    this.dataServ.getdata("allClients").subscribe((data):any =>{
       for (const key in data) {
         if(item.id==data[key].id){
           this.globalObject=data[key];
@@ -86,17 +104,17 @@ export class ClientsComponent implements OnInit {
           break;
         }
       }
-      console.log(this.globalObject.img)
     })
   }
   //---------------------------------------------
 
   // --------- to impelement the deletion ---------
   deleteTheItem(){
-    // this.dataServ.delete("allClients",this.globalKey).subscribe(()=>{
-    //   setTimeout(()=> location.reload() , 600)
-    // })
-     this.fireStorage.storage.refFromURL(this.globalObject.img).delete()
+     this.dataServ.delete("allClients",this.globalKey).subscribe(()=>{
+      this.getData()
+      this.mainControl="showData";
+      this.fireStorage.storage.refFromURL(this.globalObject.img).delete()
+    })
 
   }
   //---------------------------------------------

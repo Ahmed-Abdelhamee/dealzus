@@ -1,19 +1,21 @@
+
 <!-- div for show-data   and   add-new  -->
 <div class="col-12">
     <div class="container">
-        <button class="btn btn-primary" adminButtonDirective (click)="viewControl('add')">اصافة صورة</button>
+        <button class="btn btn-primary" adminButtonDirective (click)="viewControl('change-home-photo')">اصافة صورة</button>
+        <button class="btn btn-primary" adminButtonDirective (click)="viewControl('add')">اصافة خدمة</button>
         <button class="btn btn-secondary" adminButtonDirective  (click)="viewControl('showData')">المحتوي</button>
     </div>
 </div>
 <!-- form div -->
 <div class="col-12">
-    <div class="container mt-4" *ngIf="mainControl=='add' || mainControl=='edit'">
-        <div class="text-center" *ngIf="mainControl=='edit'">
-            <img [src]="globalObject.img" alt="" appAdminPromoImage>
+    <div class="container mt-4" *ngIf="mainControl=='change-home-photo' || mainControl=='edit-data' || mainControl=='add'">
+        <div class="text-center" *ngIf="mainControl=='add' ">
+            <!-- <img [src]="globalObject.img" alt="" appAdminPromoImage> -->
         </div>
-        <form [formGroup]="clientPhoto" (ngSubmit)="submit()">
-            <div class="form-group">
-                <label for="file"></label>
+        <form [formGroup]="homeServicePhoto" (ngSubmit)="submit()">
+            <div class="form-group" *ngIf="mainControl=='add'">
+                <label for="file" class="pb-1">تغيير صورة الخدمات بالصفحة الرئيسية</label>
                 <input type="file" class="form-control" id="file" (change)="uploadingFile($event)">
                 <img [src]="photoUrl" alt="" *ngIf="photoUrl != '' "   adminPhotoStyleDirective   >
                 <span *ngIf="uploadingImg == 'uploadingImg'"   adminLoadingStyleDirective  >جاري التحميل ...</span>
@@ -24,8 +26,9 @@
         </form>
     </div>
 </div>
+
 <!-- data show div -->
-<div class="col-12" appShowDataDiveDirective  *ngIf="mainControl=='showData' || mainControl=='delete'">
+<div class="col-12 table-responsive" appShowDataDiveDirective  *ngIf="mainControl=='showData' || mainControl=='delete'">
     <table class="table"  *ngIf="mainControl=='showData'">
         <thead>
           <tr>
@@ -46,7 +49,7 @@
         </tbody>
     </table>
     <!-- to ensure the delete action -->
-    <div *ngIf="mainControl=='delete'" appDeleteElementDiv>
+    <!-- <div *ngIf="mainControl=='delete'" appDeleteElementDiv>
         <div class="content">
             <img [src]="globalObject.img" alt="" appAdminPromoImage class="mb-3">
             <div class="text-center">
@@ -54,5 +57,5 @@
                 <button class="btn btn-secondary" adminButtonDirective (click)="viewControl('showData')">cancel</button>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

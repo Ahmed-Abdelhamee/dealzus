@@ -11,6 +11,7 @@ import { AdminButtonDirectiveDirective } from './directives/admin-button-directi
 import { ShowDataDiveDirectiveDirective } from './directives/show-data-dive-directive.directive';
 import { DeleteElementDivDirective } from './directives/delete-element-div.directive';
 import { AdminPromoImageDirective } from './directives/admin-promo-image.directive';
+import { HomeServciesComponent } from './home-servcies/home-servcies.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AdminPromoImageDirective } from './directives/admin-promo-image.directi
     AdminButtonDirectiveDirective,
     ShowDataDiveDirectiveDirective,
     DeleteElementDivDirective,
-    AdminPromoImageDirective
+    AdminPromoImageDirective,
+    HomeServciesComponent
   ],
   imports: [
     CommonModule,

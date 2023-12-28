@@ -15,12 +15,8 @@ export class DataService {
     this.databaseURL=database.app.options.databaseURL;
   }
 
-  getHomeClients():Observable<homeClients[]>{
-    return this.http.get<homeClients[]>(`${this.databaseURL}/homeClients.json`)
-  }
-
-  getAllClients():Observable<homeClients[]>{
-    return this.http.get<homeClients[]>(`${this.databaseURL}/allClients.json`)
+  getdata(position:string):Observable<any[]>{
+    return this.http.get<any[]>(`${this.databaseURL}/${position}.json`)
   }
 
   // ---------------------------- create data ----------------------------

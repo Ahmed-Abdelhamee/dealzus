@@ -17,7 +17,7 @@ export class ClientsComponent implements OnInit {
   clientsList:homeClients[]=[]
   
   constructor(private dataServ:DataService) {
-    dataServ.getAllClients().subscribe(data =>{
+    dataServ.getdata("allClients").subscribe(data =>{
       for (const key in data) {
         this.clientsList.push(data[key])
       }

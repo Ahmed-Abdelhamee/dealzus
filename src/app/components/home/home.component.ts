@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   clientPhotoArray:homeClients[]=[]
   
   constructor(private dataServ:DataService) {
-    dataServ.getHomeClients().subscribe(data =>{
+    dataServ.getdata("homeClients").subscribe(data =>{
       for (const key in data) {
         this.clientPhotoArray.push(data[key])
       }
